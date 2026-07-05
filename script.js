@@ -22,26 +22,25 @@ const projects = [
       "demo": "https://road-to-10k-nu.vercel.app/",
       "github": "https://github.com/aryaro623/road-to-10k",
       "caseStudy": "#",
-      "demoVideo": ""
+      "demoVideo": "videos/instacart-walkthrough.mp4"
     }
   },
   {
     "title": "ARYVIS",
-    "status": "Working Prototype / Active Development",
+    "status": "Working Prototype",
     "tier": "featured",
-    "originContext": "Started with the raw Iron Man Jarvis idea, then matured past a command bot into the intelligence and orchestration layer of a personal operating ecosystem: local-first agent architecture, structured memory, tool execution, and connected context across the other systems I run.",
+    "originContext": "Started with the raw Iron Man Jarvis idea, then matured into a local-first AI command layer: Telegram interface, Ollama, FastAPI, reminders, memory, and modular workflow execution.",
     "origin": "i want to start a new project. i want to make a personal jarvis that i can talk to. jarvis from iron man. aligned with ary_os that i already built. i want it to be expansive, incorporating tools like n8n workflows to be able to text my jarvis on telegram and ask it to do stuff.",
-    "summary": "The intelligence and orchestration layer of my personal operating ecosystem: a local-first agent built on a Brain / Heart / SYNAPSE / Hands architecture with structured memory, tool execution, and an evolving ability to read context across the systems I actually use.",
-    "problem": "My reminders, projects, goals, trading notes, earnings data, and daily workflows were fragmented across different systems with no unified interface — and no single layer that could reason across them.",
-    "built": "Built the FastAPI + Telegram + Ollama core with SQLite persistence, reminders, and intent routing, then evolved it into an agent architecture: function-calling tools with a ToolExecutor, guardrails against hallucinated numbers and raw-data leaks, interactive checkpoints, structured memory with knowledge-index sync, Whisper voice input, and the SYNAPSE visual layer that renders the system's internal flow.",
+    "summary": "A local-first AI assistant that uses Telegram, FastAPI, Ollama, SQLite, reminders, intent routing, and structured memory to act as a personal command layer.",
+    "problem": "My reminders, projects, goals, trading notes, earnings data, and daily workflows were fragmented across different systems with no unified interface.",
+    "built": "Implemented a FastAPI backend, Telegram bot interface, Ollama integration, SQLite persistence, reminder creation/cancellation, scheduled delivery, intent classification, health endpoint, and tool-routing architecture.",
     "tools": [
       "Python",
       "FastAPI",
-      "Ollama",
-      "Local LLMs",
       "SQLite",
       "Telegram Bot API",
-      "Whisper"
+      "Ollama",
+      "Local LLMs"
     ],
     "lesson": "The hard part of AI assistants is not generating responses. It is deciding what should be remembered, when tools should execute, and how memory should be structured.",
     "links": {
@@ -74,7 +73,7 @@ const projects = [
       "demo": "https://ary-os.netlify.app/",
       "github": "https://github.com/aryaro623/ary_os",
       "caseStudy": "#",
-      "demoVideo": ""
+      "demoVideo": "videos/ary-os-walkthrough.mp4"
     }
   },
   {
@@ -100,7 +99,7 @@ const projects = [
       "demo": "#",
       "github": "#",
       "caseStudy": "#",
-      "demoVideo": ""
+      "demoVideo": "videos/quantopia-walkthrough.mp4"
     }
   },
   {
@@ -125,7 +124,7 @@ const projects = [
       "demo": "#",
       "github": "#",
       "caseStudy": "#",
-      "demoVideo": ""
+      "demoVideo": "videos/goat-dna-walkthrough.mp4"
     }
   },
   {
@@ -167,49 +166,45 @@ const cursorGlow = document.getElementById("cursor-glow");
 
 document.body.classList.add("locked");
 
-// Repos that exist but are not publicly viewable yet. Rendered as a
-// non-clickable badge so visitors are never sent to a GitHub 404.
-const privateRepos = [
-  "https://github.com/aryaro623/road-to-10k",
-  "https://github.com/aryaro623/ARYVIS",
-  "https://github.com/aryaro623/ary_os"
-];
-
-function isRealUrl(url) {
-  return Boolean(url) && url !== "#";
-}
-
-function createExternalLink(label, url) {
+function createLink(label, url) {
   const a = document.createElement("a");
-  a.textContent = label;
-  a.href = url;
-  a.target = "_blank";
-  a.rel = "noopener noreferrer";
+  const privateRepos = [
+    "https://github.com/aryaro623/road-to-10k",
+    "https://github.com/aryaro623/ARYVIS"
+  ];
+
+  if (label.includes("GITHUB") && privateRepos.includes(url)) {
+    a.textContent = "GITHUB_PRIVATE";
+    a.title = "Repository currently private";
+  } else {
+    a.textContent = label;
+  }
+
+  a.href = url || "#";
+  if (!url || url === "#") {
+    a.classList.add("disabled");
+    a.setAttribute("aria-disabled", "true");
+  } else {
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+  }
   return a;
 }
 
-function createPrivateBadge() {
-  const span = document.createElement("span");
-  span.className = "private-badge";
-  span.textContent = "GITHUB_PRIVATE";
-  span.title = "Repository currently private";
-  return span;
-}
 
-// Only render buttons that lead somewhere real. Order = strongest proof
-// first: live deployment, then walkthrough video, then repo.
-function buildProofLinks(project) {
-  const links = project.links || {};
-  const items = [];
-  if (isRealUrl(links.demo)) items.push(createExternalLink("LIVE_DEMO", links.demo));
-  if (isRealUrl(links.demoVideo)) items.push(createExternalLink("WATCH_DEMO", links.demoVideo));
-  if (isRealUrl(links.github)) {
-    items.push(privateRepos.includes(links.github)
-      ? createPrivateBadge()
-      : createExternalLink("GITHUB", links.github));
+function createVideoLink(project) {
+  const a = document.createElement("a");
+  const videoUrl = project.links?.demoVideo || "#";
+  a.textContent = "WATCH_DEMO";
+  a.href = videoUrl;
+  if (!videoUrl || videoUrl === "#") {
+    a.classList.add("disabled");
+    a.setAttribute("aria-disabled", "true");
+  } else {
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
   }
-  if (isRealUrl(links.caseStudy)) items.push(createExternalLink("CASE_STUDY", links.caseStudy));
-  return items;
+  return a;
 }
 
 function renderProjects() {
@@ -223,10 +218,13 @@ function renderProjects() {
     card.setAttribute("role", "button");
     card.setAttribute("aria-label", `Open ${project.title} details`);
 
-    const proofLinks = buildProofLinks(project);
     const linkRow = document.createElement("div");
     linkRow.className = "project-link-row";
-    proofLinks.forEach(link => {
+    const demo = createLink("LIVE_DEMO", project.links.demo);
+    const video = createVideoLink(project);
+    const github = createLink("GITHUB", project.links.github);
+    const caseStudy = createLink("CASE_STUDY", project.links.caseStudy);
+    [demo, video, github, caseStudy].forEach(link => {
       link.classList.add("project-link");
       link.addEventListener("click", (event) => event.stopPropagation());
       linkRow.appendChild(link);
@@ -241,16 +239,11 @@ function renderProjects() {
       </div>
       <span class="open-label">OPEN_FILE_${String(index + 1).padStart(2, "0")}</span>
     `;
-    if (proofLinks.length) {
-      card.insertBefore(linkRow, card.querySelector(".open-label"));
-    }
+    card.insertBefore(linkRow, card.querySelector(".open-label"));
 
     card.addEventListener("click", () => openModal(project));
     card.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        openModal(project);
-      }
+      if (event.key === "Enter" || event.key === " ") openModal(project);
     });
 
     if (project.tier === "featured") featured.appendChild(card);
@@ -334,7 +327,10 @@ function openModal(project) {
 
   const modalLinks = document.getElementById("modal-links");
   modalLinks.innerHTML = "";
-  buildProofLinks(project).forEach(link => modalLinks.appendChild(link));
+  modalLinks.appendChild(createLink("LIVE_DEMO", project.links.demo));
+  modalLinks.appendChild(createVideoLink(project));
+  modalLinks.appendChild(createLink("GITHUB_REPO", project.links.github));
+  modalLinks.appendChild(createLink("CASE_STUDY", project.links.caseStudy));
 
   const modal = document.getElementById("project-modal");
   modal.classList.add("active");
@@ -355,8 +351,7 @@ document.querySelectorAll("[data-close-modal]").forEach((el) => {
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
-    const modal = document.getElementById("project-modal");
-    if (modal.classList.contains("active")) closeModal();
+    closeModal();
   }
 });
 
@@ -382,42 +377,6 @@ function revealObserver() {
   window.addEventListener("scroll", updateReveals, { passive: true });
   window.addEventListener("resize", updateReveals);
 }
-
-// Evidence Pipeline: scroll-scrubbed stage activation. The section is taller
-// than the viewport; the sticky inner panel pins while progress (0..1) drives
-// the rail fill and unlocks each stage as the fill reaches its dot.
-const pipelineSection = document.getElementById("pipeline");
-
-function updatePipeline() {
-  if (!pipelineSection) return;
-  const rect = pipelineSection.getBoundingClientRect();
-  const vh = window.innerHeight || document.documentElement.clientHeight;
-  const scrollable = rect.height - vh;
-
-  let progress;
-  if (scrollable > 80) {
-    progress = -rect.top / scrollable;
-  } else {
-    // Fallback when the section isn't taller than the viewport (mobile):
-    // scrub as the section travels through the viewport instead of pinning.
-    progress = (vh * 0.9 - rect.top) / rect.height;
-  }
-  progress = Math.min(1, Math.max(0, progress));
-
-  pipelineSection.style.setProperty("--pipe-progress", progress.toFixed(4));
-
-  const stages = pipelineSection.querySelectorAll(".pipe-stage");
-  stages.forEach((stage, index) => {
-    const threshold = (index + 0.5) / stages.length;
-    stage.classList.toggle("active", progress >= threshold - 0.02);
-  });
-
-  pipelineSection.classList.toggle("complete", progress >= 0.96);
-}
-
-window.addEventListener("scroll", updatePipeline, { passive: true });
-window.addEventListener("resize", updatePipeline);
-updatePipeline();
 
 document.addEventListener("mousemove", (event) => {
   if (!cursorGlow) return;

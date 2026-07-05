@@ -1134,13 +1134,43 @@ a {
 }
 
 
-/* V7 reveal stability patch (V5/V7 margin rules superseded by V15/V16 below) */
+/* V5 minimal feedback patch */
+.terminal-body .system-line {
+  margin: -8px 0 18px;
+}
+
+
+/* V7 balance + reveal stability patch */
+.terminal-body .system-line {
+  margin: 0 0 14px;
+}
+
+.terminal-body h1 {
+  margin: 10px 0 16px;
+}
+
 .site.revealed .reveal {
   will-change: opacity, transform;
 }
 
 
-/* V15 photo crop (final: V8/V11 intermediate crop rules removed, this wins) */
+/* V8 photo crop adjustment */
+.operator-photo img {
+  object-position: center 82%;
+}
+
+
+/* V11 stronger photo crop adjustment */
+.operator-photo img {
+  height: 122% !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  transform: translateY(-8%) !important;
+}
+
+
+/* V15 photo zoom-out and intro spacing patch */
 .operator-photo img {
   height: 112% !important;
   width: 100% !important;
@@ -1149,8 +1179,15 @@ a {
   transform: translateY(-8%) !important;
 }
 
-/* Separate status line and LOCKED visually (margins finalized in V16 below) */
+/* Separate status line and LOCKED visually */
+.terminal-body .system-line {
+  display: block;
+  margin: 0 0 26px !important;
+}
+
 .terminal-body h1 {
+  display: block;
+  margin: 0 0 26px !important;
   line-height: 0.88;
 }
 
@@ -1178,476 +1215,4 @@ a {
 
 .terminal-body .system-line {
   margin: 0 0 30px !important;
-}
-
-
-/* V24 truthful links + ecosystem architecture patch */
-.contact-links a.disabled {
-  color: var(--dim);
-  pointer-events: none;
-}
-
-.private-badge {
-  display: inline-block;
-  border: 1px solid var(--line);
-  padding: 12px 16px;
-  font-family: var(--mono);
-  font-size: 0.82rem;
-  color: var(--dim);
-  cursor: default;
-}
-
-.project-link-row .private-badge {
-  padding: 8px 10px;
-  font-size: 0.7rem;
-}
-
-.private-badge:hover {
-  transform: none;
-  border-color: var(--line);
-}
-
-.private-badge::before {
-  content: none;
-}
-
-.modal-links:empty {
-  display: none;
-  margin: 0;
-}
-
-.ecosystem {
-  margin: 64px 0 10px;
-}
-
-.eco-heading {
-  margin-bottom: 26px;
-}
-
-.eco-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1.12fr) 56px minmax(0, 1fr);
-  gap: 14px;
-  align-items: center;
-}
-
-.eco-node {
-  border: 1px solid var(--line);
-  background: var(--panel);
-  box-shadow: var(--shadow);
-  padding: 18px;
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity .6s ease, transform .6s cubic-bezier(.2,.9,.2,1);
-}
-
-.eco-node h3 {
-  margin: 0 0 10px;
-  font-family: var(--mono);
-  font-size: 1.02rem;
-  letter-spacing: .05em;
-}
-
-.eco-tag {
-  color: var(--brown-light);
-  font-family: var(--mono);
-  font-size: .64rem;
-  letter-spacing: .16em;
-  margin: 0 0 12px;
-}
-
-.eco-desc {
-  color: var(--muted);
-  font-size: .82rem;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.eco-aryvis {
-  border-color: rgba(184, 255, 159, .3);
-  box-shadow: 0 0 46px rgba(184, 255, 159, .06), var(--shadow);
-}
-
-.eco-aryvis .eco-tag {
-  color: var(--green);
-}
-
-.eco-connector {
-  position: relative;
-  height: 1px;
-  background: rgba(184, 255, 159, .4);
-  transform: scaleX(0);
-  transition: transform .7s cubic-bezier(.2,.9,.2,1);
-}
-
-.eco-conn-left {
-  transform-origin: left center;
-}
-
-.eco-conn-right {
-  transform-origin: right center;
-}
-
-.eco-connector::after {
-  position: absolute;
-  font-family: var(--mono);
-  color: var(--green);
-  font-size: .9rem;
-  top: 50%;
-  transform: translateY(-52%);
-  opacity: 0;
-  transition: opacity .3s ease;
-}
-
-.eco-conn-left::after {
-  content: "\203A";
-  right: -3px;
-}
-
-.eco-conn-right::after {
-  content: "\2039";
-  left: -3px;
-}
-
-.eco-final {
-  margin-top: 30px;
-  text-align: center;
-  font-family: var(--mono);
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity .6s ease, transform .6s ease;
-}
-
-.eco-online {
-  color: var(--green);
-  font-size: .74rem;
-  letter-spacing: .2em;
-  margin: 0 0 10px;
-}
-
-.eco-message {
-  color: var(--muted);
-  font-size: .8rem;
-  letter-spacing: .18em;
-  line-height: 2;
-  margin: 0;
-}
-
-/* staged activation: ARY_OS -> INSTACART -> connectors route inward -> ARYVIS -> system online */
-.ecosystem.in-view .eco-node,
-.ecosystem.in-view .eco-final {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.ecosystem.in-view .eco-connector {
-  transform: scaleX(1);
-}
-
-.ecosystem.in-view .eco-connector::after {
-  opacity: 1;
-}
-
-.ecosystem.in-view .eco-aryos { transition-delay: .05s; }
-.ecosystem.in-view .eco-instacart { transition-delay: .5s; }
-.ecosystem.in-view .eco-connector { transition-delay: 1s; }
-.ecosystem.in-view .eco-connector::after { transition-delay: 1.55s; }
-.ecosystem.in-view .eco-aryvis { transition-delay: 1.6s; }
-.ecosystem.in-view .eco-final { transition-delay: 2.2s; }
-
-@media (max-width: 980px) {
-  .eco-grid {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .eco-connector {
-    width: 1px;
-    height: 42px;
-    margin: 6px auto;
-    transform: scaleY(0);
-  }
-
-  .eco-conn-left {
-    transform-origin: center top;
-  }
-
-  .eco-conn-right {
-    transform-origin: center bottom;
-  }
-
-  .ecosystem.in-view .eco-connector {
-    transform: scaleY(1);
-  }
-
-  .eco-conn-left::after {
-    content: "\25BE";
-    top: auto;
-    right: auto;
-    bottom: -7px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .eco-conn-right::after {
-    content: "\25B4";
-    top: -7px;
-    right: auto;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-
-/* V25 evidence pipeline + themed scrollbars */
-
-/* Replace native Windows scrollbars with slim theme-matched ones */
-html {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(247, 243, 234, 0.18) #050505;
-}
-
-::-webkit-scrollbar {
-  width: 9px;
-  height: 9px;
-}
-
-::-webkit-scrollbar-track {
-  background: #050505;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(247, 243, 234, 0.14);
-  border: 2px solid #050505;
-  border-radius: 99px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(184, 255, 159, 0.3);
-}
-
-::-webkit-scrollbar-corner {
-  background: #050505;
-}
-
-.pipeline-section {
-  position: relative;
-  height: 260vh;
-  padding: 0 clamp(16px, 4vw, 64px);
-}
-
-.pipeline-sticky {
-  position: sticky;
-  top: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  overflow: hidden;
-}
-
-/* faint coordinate grid that materializes as the pipeline builds */
-.pipeline-sticky::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(184, 255, 159, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(184, 255, 159, 0.04) 1px, transparent 1px);
-  background-size: 88px 88px;
-  mask-image: radial-gradient(ellipse at center, black, transparent 78%);
-  opacity: calc(var(--pipe-progress, 0) * 0.7);
-}
-
-.pipe-heading {
-  position: relative;
-  margin-bottom: 56px;
-}
-
-.pipe-track {
-  position: relative;
-  padding-top: 30px;
-}
-
-.pipe-rail {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: rgba(247, 243, 234, 0.1);
-}
-
-.pipe-rail-fill {
-  height: 100%;
-  background: rgba(184, 255, 159, 0.55);
-  box-shadow: 0 0 14px rgba(184, 255, 159, 0.25);
-  transform: scaleX(var(--pipe-progress, 0));
-  transform-origin: left center;
-}
-
-.pipe-stages {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.pipe-stage {
-  position: relative;
-  padding-top: 18px;
-  opacity: 0.16;
-  transform: translateY(12px);
-  transition: opacity .45s ease, transform .45s cubic-bezier(.2,.9,.2,1);
-}
-
-.pipe-stage.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.pipe-dot {
-  position: absolute;
-  top: -34px;
-  left: 50%;
-  width: 9px;
-  height: 9px;
-  border-radius: 99px;
-  transform: translateX(-50%);
-  border: 1px solid rgba(247, 243, 234, 0.3);
-  background: #050505;
-  transition: background .3s ease, border-color .3s ease, box-shadow .3s ease;
-}
-
-.pipe-stage.active .pipe-dot {
-  background: var(--green);
-  border-color: var(--green);
-  box-shadow: 0 0 12px rgba(184, 255, 159, 0.55);
-}
-
-.pipe-num {
-  color: var(--pink);
-  font-family: var(--mono);
-  font-size: .72rem;
-  margin: 0 0 8px;
-}
-
-.pipe-stage h3 {
-  font-family: var(--mono);
-  font-size: .88rem;
-  letter-spacing: .07em;
-  margin: 0 0 10px;
-}
-
-.pipe-desc {
-  color: var(--muted);
-  font-size: .78rem;
-  line-height: 1.6;
-  margin: 0 0 12px;
-}
-
-.pipe-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.pipe-tags span {
-  border: 1px solid var(--line);
-  padding: 4px 6px;
-  color: var(--brown-light);
-  font-family: var(--mono);
-  font-size: .6rem;
-  letter-spacing: .08em;
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity .35s ease .15s, transform .35s ease .15s;
-}
-
-.pipe-stage.active .pipe-tags span {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.pipe-status {
-  position: relative;
-  margin: 54px 0 0;
-  font-family: var(--mono);
-  font-size: .74rem;
-  letter-spacing: .16em;
-  color: var(--dim);
-}
-
-.pipe-complete {
-  display: none;
-  color: var(--green);
-}
-
-.pipeline-section.complete .pipe-building {
-  display: none;
-}
-
-.pipeline-section.complete .pipe-complete {
-  display: inline;
-}
-
-@media (max-width: 980px) {
-  .pipeline-section {
-    height: auto;
-    padding-top: 52px;
-    padding-bottom: 52px;
-  }
-
-  .pipeline-sticky {
-    position: static;
-    min-height: 0;
-    overflow: visible;
-  }
-
-  .pipe-heading {
-    margin-bottom: 38px;
-  }
-
-  .pipe-track {
-    padding-top: 0;
-    padding-left: 26px;
-  }
-
-  .pipe-rail {
-    top: 4px;
-    bottom: 4px;
-    left: 5px;
-    right: auto;
-    width: 1px;
-    height: auto;
-  }
-
-  .pipe-rail-fill {
-    width: 100%;
-    height: 100%;
-    transform: scaleY(var(--pipe-progress, 0));
-    transform-origin: center top;
-  }
-
-  .pipe-stages {
-    grid-template-columns: 1fr;
-    gap: 26px;
-  }
-
-  .pipe-stage {
-    padding-top: 0;
-  }
-
-  .pipe-dot {
-    top: 4px;
-    left: -21px;
-    transform: none;
-  }
-
-  .pipe-status {
-    margin-top: 38px;
-  }
 }

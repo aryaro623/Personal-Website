@@ -120,18 +120,3 @@ V22 patch:
 
 V23 patch:
 - Connected Budget Flow WATCH_DEMO button to Google Drive walkthrough video.
-
-
-V24 patch:
-- Link truthfulness pass: cards/modals now render only buttons that lead somewhere real. Disabled LIVE_DEMO / CASE_STUDY placeholders removed; broken WATCH_DEMO links to nonexistent local videos removed (re-add by filling demoVideo in script.js when videos exist).
-- GITHUB_PRIVATE is now a non-clickable badge (was a link to a GitHub 404). ary_os repo added to the private list since it 404s publicly.
-- Contact LinkedIn/GitHub/Resume placeholders marked as *_PENDING and disabled instead of dead "#" links.
-- Added ECOSYSTEM_ARCHITECTURE scroll-activated section between featured and secondary projects: ARY_OS and Instacart Intelligence activate first, connectors route inward, ARYVIS activates as the central intelligence/orchestration layer, then a restrained SYSTEM ONLINE moment. Pure CSS/JS, replays on scroll, honors prefers-reduced-motion.
-- Reworked ARYVIS project copy: repositioned as the intelligence and orchestration layer of the personal ecosystem (Brain / Heart / SYNAPSE / Hands, ToolExecutor + guardrails, knowledge-index sync, Whisper, SYNAPSE visual layer). WATCH_DEMO now renders before GitHub.
-- Bug fixes: missing </section> for #about (all later sections were nested inside it), Escape no longer unlocks page scroll during the intro, Space key on a focused project card no longer scrolls the page.
-- CSS cleanup: removed superseded V5/V7/V8/V11 override rules whose final values live in V15/V16 (no visual change).
-
-
-V25 patch:
-- Added EVIDENCE_PIPELINE scroll-scrubbed section between the hero and Operator Profile. Desktop: the panel pins (sticky) while scrolling and a rail fill + faint coordinate grid build with scroll progress; six stages (RAW_FRICTION → OBSERVATION → WORKFLOW → PROTOTYPE → REAL_USE → RECEIPT) activate as the fill reaches their dots, each tagged with the real projects that live at that stage. Ends with an EVIDENCE_INDEX: COMPLETE status line. Scrubbing is fully reversible (scroll back up and it unbuilds). Mobile: vertical rail, no pinning, same progress logic. Pure CSS/JS, no libraries.
-- Replaced native Windows scrollbars with slim theme-matched scrollbars (dark track, subtle thumb, green hover) for the page, modal, and nav overflow — Chromium via ::-webkit-scrollbar, Firefox via scrollbar-width/scrollbar-color. Scrollbars remain visible for usability; switch to fully hidden only if explicitly desired.
