@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aryan Arora | AI Builder Portfolio</title>
+  <meta name="description" content="Aryan Arora — AI builder creating dashboards, automations, and personal operating systems for messy real-world workflows." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Special+Elite&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="cursor-glow" id="cursor-glow"></div>
+
+  <div id="boot-screen" class="boot-screen" aria-label="Locked intro screen">
+    <div class="scanline"></div>
+    <div class="terminal-card">
+      <div class="terminal-top">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="terminal-label">CLASSIFIED_PORTFOLIO_ACCESS</span>
+      </div>
+      <div class="terminal-body">
+        <p class="system-line">SYSTEM STATUS: <span class="danger">LOCKED</span></p>
+        <h1>LOCKED</h1>
+        <p class="subtle">Authorization required. Enter clearance phrase.</p>
+        <form id="access-form" class="access-form">
+          <label for="password">/secure/access/password</label>
+          <div class="input-row">
+            <span>&gt;</span>
+            <input id="password" name="password" type="password" autocomplete="off" autofocus />
+            <button type="submit">ENTER</button>
+          </div>
+        </form>
+        <div id="auth-log" class="auth-log" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sike-screen" class="sike-screen" aria-hidden="true">
+    <div class="sike-text">SIKE</div>
+    <div class="sike-subtext">ACCESS GRANTED ANYWAY</div>
+  </div>
+
+  <div id="curtain-left" class="curtain curtain-left"></div>
+  <div id="curtain-right" class="curtain curtain-right"></div>
+
+  <main id="site" class="site">
+    <nav class="nav">
+      <a href="#home" class="brand">ARYAN_ARORA</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#origin">Origins</a>
+        <a href="#timeline">Pattern</a>
+        <a href="#stack">Stack</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <section id="home" class="hero section reveal">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">AI BUILDER / SYSTEMS THINKER / FINANCE + WORKFLOW NERD</p>
+          <h1>Dashboards, automations, and personal operating systems for messy real-world workflows.</h1>
+          <p class="hero-copy">
+            I build practical AI-assisted systems that turn scattered information, decisions, and routines into tools people can actually use.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">View Projects</a>
+            <a class="button secondary" href="#origin">See Origins</a>
+          </div>
+        </div>
+        <aside class="status-panel float-card">
+          <div class="panel-header">BUILD_RECEIPTS</div>
+          <div class="stat-row"><span>Flagship</span><strong>AI Workflows</strong></div>
+          <div class="stat-row"><span>Proof Type</span><strong>Demos / Repos / Case Studies</strong></div>
+          <div class="stat-row"><span>Project Set</span><strong>Dashboards + Automations</strong></div>
+          <div class="stat-row"><span>Core Standard</span><strong>Useful before flashy</strong></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="pipeline" class="pipeline-section" aria-label="Evidence pipeline: how friction becomes proof">
+      <div class="pipeline-sticky">
+        <div class="section-heading pipe-heading">
+          <p class="eyebrow">EVIDENCE_PIPELINE</p>
+          <h2>How friction becomes proof.</h2>
+        </div>
+        <div class="pipe-track">
+          <div class="pipe-rail" aria-hidden="true"><div class="pipe-rail-fill"></div></div>
+          <ol class="pipe-stages">
+            <li class="pipe-stage">
+              <span class="pipe-dot" aria-hidden="true"></span>
+              <p class="pipe-num">01</p>
+              <h3>RAW_FRICTION</h3>
+              <p class="pipe-desc">Scattered screenshots, vague budgets, missed plans, fragmented context.</p>
+              <div class="pipe-tags"><span>ORIGIN_PROMPTS</span></div>
+            </li>
+            <li class="pipe-stage">
+              <span class="pipe-dot" aria-hidden="true"></span>
+              <p class="pipe-num">02</p>
+              <h3>OBSERVATION</h3>
+              <p class="pipe-desc">Name the pattern. Decide what actually gets measured.</p>
+              <div class="pipe-tags"><span>GOAT_DNA</span></div>
+            </li>
+            <li class="pipe-stage">
+              <span class="pipe-dot" aria-hidden="true"></span>
+              <p class="pipe-num">03</p>
+              <h3>WORKFLOW</h3>
+              <p class="pipe-desc">Route the mess through structure: schemas, memory, commands, intent.</p>
+              <div class="pipe-tags"><span>ARYVIS</span></div>
+            </li>
+            <li class="pipe-stage">
+              <span class="pipe-dot" aria-hidden="true"></span>
+              <p class="pipe-num">04</p>
+              <h3>PROTOTYPE</h3>
+              <p class="pipe-desc">The smallest useful build that survives contact with real data.</p>
+              <div class="pipe-tags"><span>BUDGET_FLOW</span><span>QUANTOPIA</span></div>
+            </li>
+            <li class="pipe-stage">
+              <span class="pipe-dot" aria-hidden="true"></span>
+              <p class="pipe-num">05</p>
+              <h3>REAL_USE</h3>
+              <p class="pipe-desc">Run it daily. Let friction file the bug reports.</p>
+              <div class="pipe-tags"><span>INSTACART</span><span>ARY_OS</span></div>
+            </li>
+            <li class="pipe-stage">
+              <span class="pipe-dot" aria-hidden="true"></span>
+              <p class="pipe-num">06</p>
+              <h3>RECEIPT</h3>
+              <p class="pipe-desc">Deployed tools, walkthroughs, honest status. Proof over claims.</p>
+              <div class="pipe-tags"><span>LIVE_DEMOS</span><span>WALKTHROUGHS</span></div>
+            </li>
+          </ol>
+        </div>
+        <p class="pipe-status" aria-live="polite">
+          <span class="pipe-building">&gt; EVIDENCE_INDEX: BUILDING…</span>
+          <span class="pipe-complete">&gt; EVIDENCE_INDEX: COMPLETE — OUTPUT: PROJECT_DATABASE</span>
+        </p>
+      </div>
+    </section>
+
+    <section id="about" class="section about-section reveal">
+      <div class="about-grid">
+        <aside class="operator-card tilt-card">
+          <div class="operator-photo" id="operator-photo">
+            <img src="profile.jpg" alt="Portrait of Aryan Arora" />
+          </div>
+          <div class="operator-meta">
+            <p class="eyebrow">OPERATOR_PROFILE</p>
+            <h2>Aryan Arora</h2>
+            <div class="meta-list">
+              <div><span>Location</span><strong>Reston, VA</strong></div>
+              <div><span>Focus</span><strong>AI Workflows</strong></div>
+              <div><span>Domains</span><strong>Finance / Education / Ops</strong></div>
+              <div><span>Current Mode</span><strong>Building receipts</strong></div>
+            </div>
+          </div>
+        </aside>
+
+        <div class="about-copy">
+          <p class="eyebrow">ABOUT_ME</p>
+          <h2>I build systems with enough utility to matter and enough personality to actually use.</h2>
+          <p>
+            I’m a finance and economics student who uses AI to build around the workflows I actually live: money, discipline, work, learning, trading, and decision-making. My projects usually start as a raw question, frustration, or self-audit, then turn into dashboards, automations, assistants, or operating systems.
+          </p>
+          <p>
+            The pattern is simple: notice friction, structure the problem, build the smallest useful system, test it against real behavior, then refine until it becomes something durable. I care about tools that help people act with more clarity, not demos that only look impressive once.
+          </p>
+          <div class="about-tags">
+            <span>AI-assisted building</span>
+            <span>workflow automation</span>
+            <span>financial health</span>
+            <span>technical education</span>
+            <span>decision systems</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section reveal">
+      <div class="section-heading">
+        <p class="eyebrow">PROJECT DATABASE</p>
+        <h2>Built from real problems, not tutorial prompts.</h2>
+        <p>
+          Each project started as a messy workflow or question: how to earn smarter, execute better, automate memory, learn technical finance, model greatness, or manage money with more intention.
+        </p>
+      </div>
+
+      <div class="row-heading">
+        <span>FEATURED_SYSTEMS</span>
+        <small>highest signal for AI workflow, daily usage, and operational tooling</small>
+      </div>
+      <div id="featured-projects" class="project-grid"></div>
+
+      <div class="ecosystem reveal" aria-label="Ecosystem architecture: how the flagship systems connect">
+        <div class="row-heading eco-heading">
+          <span>ECOSYSTEM_ARCHITECTURE</span>
+          <small>how the flagship systems connect</small>
+        </div>
+        <div class="eco-grid">
+          <div class="eco-node eco-aryos">
+            <p class="eco-tag">EXECUTION SUBSTRATE</p>
+            <h3>ARY_OS</h3>
+            <p class="eco-desc">Daily execution, habits, routines, trading reflection, behavior loops.</p>
+          </div>
+          <div class="eco-connector eco-conn-left" aria-hidden="true"></div>
+          <div class="eco-node eco-aryvis">
+            <p class="eco-tag">INTELLIGENCE + ORCHESTRATION</p>
+            <h3>ARYVIS</h3>
+            <p class="eco-desc">Memory, tools, judgment, coordination — the evolving layer that can increasingly read across connected systems.</p>
+          </div>
+          <div class="eco-connector eco-conn-right" aria-hidden="true"></div>
+          <div class="eco-node eco-instacart">
+            <p class="eco-tag">OPERATIONAL DOMAIN + DATA</p>
+            <h3>INSTACART INTELLIGENCE</h3>
+            <p class="eco-desc">Live work data: earnings logs, store intelligence, pace, real-world operating receipts.</p>
+          </div>
+        </div>
+        <div class="eco-final">
+          <p class="eco-online">&gt; SYSTEM ONLINE</p>
+          <p class="eco-message">FROM FRAGMENTED LIFE SYSTEMS<br />TO A CONNECTED PERSONAL INTELLIGENCE LAYER</p>
+        </div>
+      </div>
+
+      <div class="row-heading secondary-row">
+        <span>SECONDARY_ARCHIVES</span>
+        <small>supporting projects with research, education, and analytics depth</small>
+      </div>
+      <div id="secondary-projects" class="project-grid"></div>
+    </section>
+
+    <section id="origin" class="section origin-section reveal">
+      <div class="section-heading">
+        <p class="eyebrow">FIRST_SPARKS</p>
+        <h2>How the projects started.</h2>
+        <p>
+          Every project started as a raw thought, frustration, question, or obsession. This section gives the clean context. Open a project to see the actual first prompt or origin excerpt.
+        </p>
+      </div>
+      <div id="origin-list" class="origin-list"></div>
+    </section>
+
+    <section id="timeline" class="section timeline-section reveal">
+      <div class="section-heading">
+        <p class="eyebrow">OPERATING PATTERN</p>
+        <h2>The through-line.</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span>01</span>
+          <h3>I notice friction.</h3>
+          <p>Scattered screenshots, unclear budgets, inconsistent execution, vague learning paths, or fragmented reminders.</p>
+        </div>
+        <div class="timeline-item">
+          <span>02</span>
+          <h3>I turn it into a system.</h3>
+          <p>Dashboards, scoring models, command layers, workflows, data schemas, and AI-assisted interfaces.</p>
+        </div>
+        <div class="timeline-item">
+          <span>03</span>
+          <h3>I test it in real life.</h3>
+          <p>The strongest projects are used, broken, debugged, refactored, and made more honest through daily friction.</p>
+        </div>
+        <div class="timeline-item">
+          <span>04</span>
+          <h3>I extract the lesson.</h3>
+          <p>Usefulness before polish. Scope before glamor. Handoff before hype. Systems that survive are better than demos that impress.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack" class="section stack-section reveal">
+      <div class="section-heading">
+        <p class="eyebrow">STACK + WORKFLOW</p>
+        <h2>Tools I use to build.</h2>
+      </div>
+      <div class="stack-grid">
+        <div class="stack-card">
+          <h3>Frontend / Product</h3>
+          <p>HTML, CSS, JavaScript, React, Next.js, Tailwind, responsive UI, PWA patterns, visual systems.</p>
+        </div>
+        <div class="stack-card">
+          <h3>Data / Dashboards</h3>
+          <p>Python, analytics workflows, OCR-assisted ingestion, local storage, IndexedDB, SQLite, Plotly, forecasting.</p>
+        </div>
+        <div class="stack-card">
+          <h3>AI / Automation</h3>
+          <p>Claude, Claude Code, ChatGPT, Ollama, Telegram Bot API, FastAPI, intent routing, memory architecture.</p>
+        </div>
+        <div class="stack-card">
+          <h3>Builder Habits</h3>
+          <p>Problem scoping, iterative debugging, project handoff prompts, honest status framing, user-first refinement.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section reveal">
+      <div class="contact-card">
+        <p class="eyebrow">OPEN_CHANNEL</p>
+        <h2>Let’s build useful systems.</h2>
+        <p>
+          I’m focused on AI workflows, dashboards, automations, financial-health tools, education platforms, and systems that help people act with more clarity.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:aryanarora748@gmail.com">aryanarora748@gmail.com</a>
+          <a href="#" class="disabled" aria-disabled="true" aria-label="LinkedIn link pending">LINKEDIN_PENDING</a>
+          <a href="#" class="disabled" aria-disabled="true" aria-label="GitHub profile link pending">GITHUB_PENDING</a>
+          <a href="#" class="disabled" aria-disabled="true" aria-label="Resume link pending">RESUME_PENDING</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="project-modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <article class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" data-close-modal aria-label="Close project details">×</button>
+      <p id="modal-status" class="project-status"></p>
+      <h2 id="modal-title"></h2>
+      <p id="modal-summary" class="modal-summary"></p>
+
+      <div id="modal-links" class="modal-links"></div>
+
+      <section class="origin-callout">
+        <p class="eyebrow">RAW_ORIGIN_PROMPT</p>
+        <blockquote id="modal-origin"></blockquote>
+      </section>
+
+      <div class="modal-grid">
+        <section>
+          <h3>Problem</h3>
+          <p id="modal-problem"></p>
+        </section>
+        <section>
+          <h3>What I built</h3>
+          <p id="modal-built"></p>
+        </section>
+        <section>
+          <h3>Tools</h3>
+          <p id="modal-tools"></p>
+        </section>
+        <section>
+          <h3>Lesson</h3>
+          <p id="modal-lesson"></p>
+        </section>
+      </div>
+    </article>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
